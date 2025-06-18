@@ -33,10 +33,34 @@
   background-size: cover;
   }
 
-  div {
+div {
+    position: relative; /* Required for pseudo-element positioning */
+    padding: 15px;
     margin-top: 25%;
-  	margin-bottom: 25%;
-  }
+    margin-bottom: 25%;
+    background-color: rgba(255, 255, 255, 0.4);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 25px;
+    z-index: 1; /* Ensures content stays above the shadow */
+}
+
+/* Gradient Shadow Effect */
+div::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom right, white, cyan);
+    z-index: -1; /* Places it behind the div */
+    filter: blur(25px); /* Adjust blur strength */
+    opacity: 0.7; /* Makes it semi-transparent */
+    border-radius: 25px; /* Matches the div's border-radius */
+}
 </style>
 
-</html>
+  </html>
